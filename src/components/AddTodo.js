@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 export class AddTodo extends Component {
+    state = {
+        title:''
+    }
+
     render() {
         return (
            <form style={{ display:'flex' }}>
@@ -9,6 +13,7 @@ export class AddTodo extends Component {
                     name="title" 
                     style= {{ flex:'10',padding: '5px' }}
                     placeholder="Add Todo ..."
+                    value = {this.state.title}
                 />
                 <input 
                     type="Submit" 
