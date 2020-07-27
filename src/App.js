@@ -4,7 +4,7 @@ import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import About from './components/pages/About';
-import {v4 as uuid} from 'uuid';
+// import {v4 as uuid} from 'uuid';
 
 
 import './App.css';
@@ -39,12 +39,11 @@ delTodo = (id) =>{
 
 // Add Todo
 addTodo = (title) =>{
-  const newTodo = {
-    id: uuid(),
+  axios.post('https://jsonplaceholder.typicode.com/todos',{
     title,
     completed: false
-  }
-  this.setState({ todos: [...this.state.todos,newTodo] });
+  })
+    .then(res =>this.setState({ todos: [...this.state.todos,res.data] }));
 
 }
 
